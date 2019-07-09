@@ -1,0 +1,16 @@
+x = 10
+y = 5
+
+# se pueden usar (==, !=, >, <, >=, <=)
+
+#simple if
+#la f es para que python detecte que es una variable
+if x > y:
+   print('str(x) es mas grande que str(y)')
+else:
+   print('str(y) es mas grande que str(x)')
+
+if x>y:
+  print(x)
+    print('hola')
+
