@@ -38,3 +38,4 @@ graph('regr.coef_*x + regr.intercept_', range(500,2000))#esto es para visualizar
 plt.scatter(size, house_price, color='black')
 plt.ylabel('house price')
 plt.xlabel('size of house')
+plt.show()
