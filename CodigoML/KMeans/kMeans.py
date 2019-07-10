@@ -24,7 +24,7 @@ X = np.array([[1,2], [5,8], [1.5,1.8], [8,8], [1,0.6], [9,11]])#igual que
 							       #reshape
 
 #Initialize the kMeans algorithm
-kmeans = KMeans(n_cluster=2)#define cuantos clusters queremos
+kmeans = KMeans(n_clusters=2)#define cuantos clusters queremos
 kmeans.fit(X)#corre el algoritmo
 
 #Getting the values of centroids and labels based in the fitment
