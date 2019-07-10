@@ -54,21 +54,21 @@ class Usuario:
         if(subtype=='1'):
           print(' ')
           print('Usaremos el metodo de regresion linear!')
-          self.subtype='linear regression'
+          self.stype='linear regression'
         elif(subtype=='2'):
           print(' ')
           print('Usaremos el metodo de clasificacion!')
-          self.subtype='classification'
+          self.stype='classification'
  
     def setSubtypeUL(self, subtype=''):
 	if(subtype=='1'):
           print(' ')
           print('Usaremos el metodo de clustering!')
-          self.subtype='clustering'
+          self.stype='clustering'
         elif(type=='2'):
           print(' ')
           print('Usaremos el metodo de asociacion!')
-          self.subtype='asociacion'
+          self.stype='asociacion'
 
  
     def setEmail(self, email=''):
@@ -91,6 +91,7 @@ print(' ')
 nombre = raw_input("Ingresa tu nombre: ")
 print(' ')
 email = raw_input("Ingresa tu email: ")
+print(' ')
 
 User = Usuario('nombre', 'correo@hotmail.com', 'nada', 'nada')
 User.setName(nombre)
@@ -110,9 +111,25 @@ else:
 
 if(type=='1'):
    subSL()
-
 elif(type=='2'):
    subUL()
+
+print(' ')
+print('Tu nombre es: ')
+print(User.nombre)
+
+print(' ')
+print('Tu email es: ')
+print(User.email)
+
+print(' ')
+print('Usaremos: ')
+print(User.type)
+
+print(' ')
+print('Con el metodo de: ')
+print(User.stype)
+
 
 #User = Usuario(nombre, email)
 #print(type(Joel))
