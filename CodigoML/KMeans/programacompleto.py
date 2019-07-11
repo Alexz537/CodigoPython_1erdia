@@ -3,48 +3,17 @@ import pandas as pds
 import matplotlib.pyplot as pltt
 import seaborn as sbb
 from scipy.io import loadmat
-
+ 
 import modulokMeans as god
 
-#primero la grafica
-#Carguemos una base de datos del clima
-data = loadmat('data/clustering_colors.mat')
-X = data['X']
-
-#Propongamos unos centroides iniciales (deben ser aleatorios o con valores dados)
-initial_centroids = npy.array([[3, 3], [6, 2], [8,5]])
-#pusimos solo 3
-
-#Estimemos donde estan los centroides mas cercanos a nuestros puntos 
-idx = god.find_closest_centroids(X, initial_centroids)
-print(idx[0:1000])#el indice del centroide en el que esta cada dato en el rango
-
-#Escribimos el algoritmo (nuestro resultado es las posiciones de los centroides)
-idx, centroids = god.run_k_means(X, initial_centroids, 10)#el 10 es las veces definidas que busca, mientras mas, mejor
-#print(idx)
-print(centroids)
-
-#hacer graficas
-#Aqui definimos nuestros cluster
-cluster1 = X[npy.where(idx == 0)[0],:]
-cluster2 = X[npy.where(idx == 1)[0],:]
-cluster3 = X[npy.where(idx == 2)[0],:]
-
-fig, ax = pltt.subplots(figsize=(12,8))
-ax.scatter(cluster1[:,0], cluster1[:,1], s=30, color='r', label='Cluster 1')
-ax.scatter(cluster2[:,0], cluster2[:,1], s=30, color='g', label='Cluster 2')
-ax.scatter(cluster3[:,0], cluster3[:,1], s=30, color='b', label='Cluster 3')
-ax.legend()
-
-pltt.xlabel('Diferencia de temperatura')
-pltt.ylabel('Diferencia de presion')
-pltt.savefig("god_graphic.pdf")
-
+print('el pajaro esta como godbird en la carpeta KMeans')
 #Ahora haremos el pajaro
 
 #Cargamos la imagen
 data_imagen = loadmat('data/bird_small_kmeans.mat')
+
 A = data_imagen['A']
+
 A.shape
 
 #Normalicemos los rangos de los valores
@@ -71,3 +40,40 @@ Y_recovered = npy.reshape(Y_recovered, (A.shape[0], A.shape[1], A.shape[2]))
 pltt.imshow(Y_recovered)
 pltt.savefig('godbird.png')
 
+print('Puedes encontrar la grafica en la carpeta KMeans como godgraphic.pdf')
+#goto 
+
+#primero la grafica
+#Carguemos una base de datos del clima
+data = loadmat('data/clustering_colors.mat')
+X = data['X']
+
+#Propongamos unos centroides iniciales (deben ser aleatorios o con valores dados)
+initial_centroids = npy.array([[3, 3], [6, 2], [8,5]])
+#pusimos solo 3
+
+#Estimemos donde estan los centroides mas cercanos a nuestros puntos 
+idx = god.find_closest_centroids(X, initial_centroids)
+print(idx[0:1000])#el indice del centroide en el que esta cada dato en el rango
+
+#Escribimos el algoritmo (nuestro resultado es las posiciones de los centroides)
+idx, centroids = god.run_k_means(X, initial_centroids, 10)#el 10 es las veces definidas que busca, mientras mas, mejor
+#print(idx)
+print(centroids)
+
+#hacer graficas
+#Aqui definimos nuestros cluster
+cluster1 = X[npy.where(idx == 0)[0],:]
+cluster2 = X[npy.where(idx == 1)[0],:]
+cluster3 = X[npy.where(idx == 2)[0],:]
+
+
+fig, ax = pltt.subplots(figsize=(12,8))
+ax.scatter(cluster1[:,0], cluster1[:,1], s=30, color='r', label='Cluster 1')
+ax.scatter(cluster2[:,0], cluster2[:,1], s=30, color='g', label='Cluster 2')
+ax.scatter(cluster3[:,0], cluster3[:,1], s=30, color='b', label='Cluster 3')
+ax.legend()
+
+pltt.xlabel('Diferencia de temperatura')
+pltt.ylabel('Diferencia de presion')
+pltt.savefig("god_graphic.pdf")
