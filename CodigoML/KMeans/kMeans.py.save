@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 
 from matplotlib import style
 style.use("ggplot")# para darle estilo
-#matplotlib.use('tkagg')
 
 #Que tipo de machine learning usaremos
 from sklearn.cluster import KMeans
@@ -18,7 +17,7 @@ print(len(x))
 print(len(y))
 
 plt.scatter(x,y)
-#plt.show()#esto muestra la grafica
+plt.show()#esto muestra la grafica
 
 #Like we did before, convert our data to a numpy array
 X = np.array([[1,2], [5,8], [1.5,1.8], [8,8], [1,0.6], [9,11]])#igual que 
@@ -48,5 +47,4 @@ for i in range(len(X)):
 
 plt.scatter(centroids[:, 0], centroids[:, 1], marker = "x", s=150, linewidths = 5, zorder = 10)
 
-#plt.show()
-plt.savefig("kMeansplot.pdf")
+plt.show()
